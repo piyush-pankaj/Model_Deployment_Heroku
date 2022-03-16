@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+  <!--From https://codepen.io/frytyler/pen/EGdtg-->
+  <head>
+    <meta charset="UTF-8" />
+    <title>ML API</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Pacifico"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Arimo"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Hind:300"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <!-- 'alcohol',
+ 'malic_acid',
+ 'ash',
+ 'alcalinity_of_ash',
+ 'magnesium',
+ 'total_phenols',
+ 'flavanoids',
+ 'nonflavanoid_phenols',
+ 'proanthocyanins',
+ 'color_intensity',
+ 'hue',
+ 'od280/od315_of_diluted_wines',
+ 'proline' -->
+  </head>
+
+  <body>
+    <div class="login">
+      <h1>Classification of Wine website</h1>
+
+      <!-- Main Input For Receiving Query to our ML -->
+      <form action="{{ url_for('predict')}}" method="post">
+        <div>
+          <label>Alcohol : </label>
+          <input type="text" name="alcohol" placeholder="alcohol" required="required" />
+        </div>
+        <br />
+        <div>
+          <label>Malic Acid : </label>
+          <input type="text" name="malic" placeholder="Malic Acid" required="required" />
+        </div>
+        <br />
+
+        <div>
+          <label>Ash: </label>
+          <input
+            type="text"
+            name="ash"
+            placeholder="ash  "
+            required="required"
+          />
+        </div>
+        <br />
+
+        <div>
+          <label>Alcalinity of ASH : </label>
+          <input
+            type="text"
+            name="alcalinity_of_ash"
+            placeholder="alcalinity_of_ash "
+            required="required"
+          />
+        </div>
+
+        <br />
+
+        <div>
+          <label>Magnesium  : </label>
+          <input
+            type="text"
+            name="magnesium"
+            placeholder="Magnesium"
+            required="required"
+          />
+        </div>
+
+        <br />
+
+        <div>
+          <label>Total Phenols : </label>
+          <input
+            type="text"
+            name="total_phenols"
+            placeholder="Total Phenols"
+            required="required"
+          />
+        </div>
+
+        <br />
+        <div>
+          <label>Flavanoids : </label>
+          <input
+            type="text"
+            name="flavanoids"
+            placeholder="Flavanoids"
+            required="required"
+          />
+        </div>
+
+        <br />
+        <div>
+          <label>Non Flavanoid Phenols : </label>
+          <input
+            type="text"
+            name="nonflavanoid_phenols"
+            placeholder="nonflavanoid_phenols"
+            required="required"
+          />
+        </div>
+
+        <br />
+        <div>
+          <label>Proanthocyanins: </label>
+          <input
+            type="text"
+            name="proanthocyanins"
+            placeholder="proanthocyanins"
+            required="required"
+          />
+        </div>
+
+        <br />
+        <div>
+          <label>Color Intensity : </label>
+          <input
+            type="text"
+            name="color_intensity"
+            placeholder="color_intensity"
+            required="required"
+          />
+        </div>
+
+        <br />
+        <div>
+          <label>Hue : </label>
+          <input
+            type="text"
+            name="hue"
+            placeholder="hue"
+            required="required"
+          />
+        </div>
+
+        <br />
+
+        <div>
+          <label>Percent diluted_wines : </label>
+          <input
+            type="text"
+            name="od280/od315_of_diluted_wines"
+            placeholder="Percent diluted_wines"
+            required="required"
+          />
+        </div>
+        <br />
+
+        <div>
+          <label>Proline  : </label>
+          <input
+            type="text"
+            name="proline"
+            placeholder="Proline"
+            required="required"
+          />
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">
+          Predict
+        </button>
+      </form>
+
+      <br />
+      <br />
+      {{ prediction_text }}
+    </div>
+  </body>
+</html>
